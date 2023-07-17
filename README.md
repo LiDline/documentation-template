@@ -2,6 +2,8 @@
 
 Based on [this](https://github.com/hasura/gatsby-gitbook-starter) project from **hasura**.
 
+Preview [here]().
+
 ## 🚀 Run
 
 Get started by running the following commands:
@@ -39,7 +41,7 @@ lunr was not installed as a plugin, but as a file from [this](https://github.com
     │   ├── search
 </pre>
 
-and replace **your_language** in createIndex.js (the file is in the search folder) file on line 25 and 30.If you want English, just comment out lines 22-25 and 30. If you want to use multiple languages, uncomment lines 24 and 25 and comment out line 30.
+and replace your_language in **createIndex.js** (the file is in the search folder) file on line 25 and 30.If you want English, just comment out lines 22-25 and 30. If you want to use multiple languages, uncomment lines 24 and 25 and comment out line 30.
 
 ```js
 22  var lunr = require('./lib/lunr.js');
