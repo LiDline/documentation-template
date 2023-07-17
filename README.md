@@ -2,7 +2,9 @@
 
 Based on [this](https://github.com/hasura/gatsby-gitbook-starter) project from **hasura**.
 
-Preview [here]().
+## Preview site
+
+Preview site [here](https://build-060849f5-66b2-466c-be7a-e13ac9ab3d7f.gtsb.io/).
 
 ## 🚀 Run
 
