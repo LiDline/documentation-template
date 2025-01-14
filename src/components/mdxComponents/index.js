@@ -2,18 +2,11 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 
 import AnchorTag from './anchor';
+import ImageModal from './ImageModal';
+import CodeExample from './CodeExample';
+import MermaidDiagram from './MermaidDiagram';
 
-const StyledPre = styled('pre')`
-  padding: 16px;
-  background: ${(props) => props.theme.colors.preFormattedText};
-`;
-
-const StyledImage = styled('img')`
-  pointer-events: none;
-`;
-const handleClick = (event) => {
-  event.preventDefault();
-};
+const StyledPre = styled('pre')``;
 
 const appendString = (children) => {
   if (Array.isArray(children)) {
@@ -81,5 +74,12 @@ export default {
     </StyledPre>
   ),
   a: AnchorTag,
-
+  img: ImageModal,
+  code: CodeExample,
+  table: (props) => (
+    <div className="table-container">
+      <table {...props} />
+    </div>
+  ),
+  mermaid: MermaidDiagram
 };

@@ -1,51 +1,30 @@
-import * as React from 'react';
-import { ThemeProvider as EmotionThemeProvider, Global, css } from '@emotion/react';
+import React from 'react';
+import { ThemeProvider as EmotionThemeProvider, Global } from '@emotion/react';
+import { ThemeProvider as CustomThemeProvider, useTheme } from './ThemeContext';
 
 import { lightTheme, darkTheme } from './index';
 import Header from '../Header';
 import { baseStyles } from '../styles/GlobalStyles';
 import { styles } from '../../custom/styles/styles';
 
-class ThemeProvider extends React.Component {
-  state = {
-    isDarkThemeActive: false,
-  };
+const ThemeWrapper = ({ children, location }) => {
+  const { isDarkThemeActive, toggleTheme } = useTheme();
 
-  componentDidMount() {
-    this.retrieveActiveTheme();
-  }
+  const currentActiveTheme = isDarkThemeActive ? darkTheme : lightTheme;
 
-  retrieveActiveTheme = () => {
-    const isDarkThemeActive = JSON.parse(window.localStorage.getItem('isDarkThemeActive'));
+  return (
+    <div>
+      <Global styles={[baseStyles, ...styles]} />
+      <Header location={location} isDarkThemeActive={isDarkThemeActive} toggleActiveTheme={toggleTheme} />
+      <EmotionThemeProvider theme={currentActiveTheme}>{children}</EmotionThemeProvider>
+    </div>
+  );
+};
 
-    this.setState({ isDarkThemeActive });
-  };
-
-  toggleActiveTheme = () => {
-    this.setState(prevState => ({ isDarkThemeActive: !prevState.isDarkThemeActive }));
-
-    window.localStorage.setItem('isDarkThemeActive', JSON.stringify(!this.state.isDarkThemeActive));
-  };
-
-  render() {
-    const { children, location } = this.props;
-
-    const { isDarkThemeActive } = this.state;
-
-    const currentActiveTheme = isDarkThemeActive ? darkTheme : lightTheme;
-
-    return (
-      <div>
-        <Global styles={[baseStyles, ...styles]} />
-        <Header
-          location={location}
-          isDarkThemeActive={isDarkThemeActive}
-          toggleActiveTheme={this.toggleActiveTheme}
-        />
-        <EmotionThemeProvider theme={currentActiveTheme}>{children}</EmotionThemeProvider>
-      </div>
-    );
-  }
-}
+const ThemeProvider = ({ children, location }) => (
+  <CustomThemeProvider>
+    <ThemeWrapper location={location}>{children}</ThemeWrapper>
+  </CustomThemeProvider>
+);
 
 export default ThemeProvider;

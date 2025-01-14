@@ -11,14 +11,11 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      '/11-inspections',
       '/test',
     ],
-    collapsedNav: [
-      '/createInspections',
-      '/inspectionTracking'
+    links: [
+      { text: 'For issue', link: 'https://git.g-soft.ru/artyom.zhevnerenko/documentation-logos' },
     ],
-    links: [{ text: 'Автономные системы', link: 'https://auto-sys.su/' }],
     frontLine: false,
     ignoreIndex: true,
   },

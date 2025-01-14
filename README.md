@@ -2,19 +2,28 @@
 
 Based on [this](https://github.com/hasura/gatsby-gitbook-starter) project from **hasura**.
 
-## 🔗 Live Demo
-
-Here's a [live demo](https://documentationtemplate.gatsbyjs.io/).
-
 ## 🚀 Run
 
 Get started by running the following commands:
 
 ```
-git clone https://github.com/LiDline/documentation-template.git
-cd user-guide-982
+nvm use 18
 npm install
 npm start
+```
+
+### Errors
+
+When you run ```npm start``` you get the following error?
+
+```
+Error: ENOSPC: System limit for number of file watchers reached, watch...
+```
+
+You need [this](https://github.com/gatsbyjs/gatsby/issues/11406) in terminal (for linux):
+
+```
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
 ## 🔧 What has changed
@@ -22,19 +31,19 @@ npm start
 <pre>
 ├── config.js   # MetaData & links was deleted
 ├── content     # All content in .mdx
-├── Dockerfile  # Created
+├── Dockerfile  # Created for ci/cd
 ├── src
-    ├── components
-    │   ├── images      # Images used in app
-    │   ├── search      # Angolia search changed to lunr
-    │   ├── sidebar     # Left panel 
-    │   ├── Header.js   # Header
+│    ├── components
+│    │   ├── images      # Images used in app
+│    │   ├── search      # Algolia search changed to lunr
+│    │   ├── sidebar     # Left panel 
+│    │   ├── Header.js   # Header
 └── static              # Images used in .mdx 
 </pre>
 
-Angolia search changed to [lunr](https://lunrjs.com/guides/getting_started.html).
-
 ### Other language in search
+
+Algolia search changed to [lunr](https://lunrjs.com/guides/getting_started.html).
 
 lunr was not installed as a plugin, but as a file from [this](https://github.com/weixsong/lunr-languages/tree/master) repository. To change the search language, go to the repository, download the **lunr.your_language.js** file and save it to this path:
 
@@ -56,3 +65,7 @@ and replace your_language in **createIndex.js** (the file is in the search folde
 29    // this.use(lunr.multiLanguage('en', 'ru'));
 30    this.use(lunr.ru);
 ```   
+
+## How use
+
+For information on using components, see on http://localhost:8000/ after ```npm start```.

@@ -1,5 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
+
 import styled from '@emotion/styled';
+import ControlPanelComponent from './ControlPanelComponent';
 
 const FullScreenModalContainer = styled.div`
   position: fixed;
@@ -41,9 +44,8 @@ const CloseButton = styled.button`
   background-color: transparent;
 `;
 
-const ImageModal = ({ src, alt }) => {
+const ImageModal = ({ nameFile, alt, num }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const modalRef = useRef(null);
 
   const openModal = () => {
     setIsOpen(true);
@@ -53,48 +55,52 @@ const ImageModal = ({ src, alt }) => {
     setIsOpen(false);
   };
 
-  const handleWheel = (event) => {
-    closeModal();
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 27) {
+      closeModal();
+    }
   };
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.keyCode === 27) {
-        closeModal();
-      }
-    };
-
-    const handleClickOutside = (event) => {
-      if (event.target === modalRef.current) {
-        closeModal();
-      }
-    };
-
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
-      document.addEventListener('click', handleClickOutside);
-      document.addEventListener('wheel', handleWheel);
     }
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('click', handleClickOutside);
-      document.removeEventListener('wheel', handleWheel);
     };
   }, [isOpen]);
 
+  const src = '/images/' + nameFile;
+
   return (
-    <>
+    <div style={{ flex: 1 }}>
       <img src={src} alt={alt} onClick={openModal} />
       {isOpen && (
-        <FullScreenModalContainer ref={modalRef} onClick={closeModal}>
+        <FullScreenModalContainer>
           <FullScreenModalContent>
-            <FullScreenModalImage src={src} alt={alt} />
+            <TransformWrapper
+              minScale={0.7}
+              maxScale={3}
+              wheel={{
+                step: 0.1,
+              }}
+            >
+              <TransformComponent>
+                <FullScreenModalImage src={src} alt={alt} />
+              </TransformComponent>
+
+              <ControlPanelComponent />
+            </TransformWrapper>
+
             <CloseButton onClick={closeModal}>&times;</CloseButton>
           </FullScreenModalContent>
         </FullScreenModalContainer>
       )}
-    </>
+      <p style={{ textAlign: 'center', fontSize: '14px', marginTop: '24px', marginBottom: '24px' }}>
+        Рисунок {num} - {alt}.
+      </p>
+    </div>
   );
 };
 

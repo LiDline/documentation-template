@@ -1,5 +1,3 @@
-# docker build --pull --rm -f "Dockerfile" -t website:latest "." --progress=plain
-
 FROM node:18 AS dependencies
 WORKDIR /app
 COPY . ./

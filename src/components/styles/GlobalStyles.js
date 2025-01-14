@@ -241,6 +241,13 @@ export const baseStyles = css`
     padding-left: 20px;
   }
 
+  .word-break {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  text-align: justify;
+}
+
   .logoContent {
     font-family: 'Roboto';
     margin-left: 16px;
@@ -282,8 +289,9 @@ export const baseStyles = css`
     align-items: flex-end;
   }
   .logoText {
-    margin-left: 18px;
+    margin-left: 16px;
     color: rgba(255, 255, 255, 0.7);
+    font-size: 22px;
   }
   .userGuideText {
     margin-left: 2px;
@@ -305,7 +313,6 @@ export const baseStyles = css`
   }
   .navBarUL li {
     list-style-type: none;
-
   }
   .navBarUL {
     -webkit-overflow-scrolling: touch;
@@ -456,6 +463,8 @@ export const baseStyles = css`
   }
 
   .hideFrontLine .collapser {
+    width: 35px;
+    height: 30px;
     background: transparent;
     border: none;
     outline: none;
@@ -468,12 +477,6 @@ export const baseStyles = css`
   .hideFrontLine .active > a {
     background-color: #1ed3c6;
     color: #fff !important;
-  }
-  .firstLevel ul li .collapser svg path {
-    fill: #fff !important;
-  }
-  .active .collapser > svg > path {
-    fill: #001933 !important;
   }
 
   .firstLevel ul .item ul .item {
@@ -584,6 +587,15 @@ export const baseStyles = css`
   }
 
   /* tables.css */
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Плавный скроллинг для мобильных устройств */
+  }
+
+  .table-td {
+    text-align: center;
+  }
+
   table {
     padding: 0;
   }

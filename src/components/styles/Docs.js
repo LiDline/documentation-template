@@ -39,7 +39,8 @@ export const Edit = styled('div')`
 `;
 
 export const StyledMainWrapper = styled.div`
-  max-width: 750px;
+  max-width: 1000px;
+
   color: ${props => props.theme.colors.text};
 
   ul,
@@ -60,15 +61,6 @@ export const StyledMainWrapper = styled.div`
   a {
     transition: color 0.15s;
     color: ${props => props.theme.colors.link};
-  }
-
-  code {
-    border: 1px solid #ede7f3;
-    border-radius: 4px;
-    padding: 2px 6px;
-    font-size: 0.9375em;
-
-    background: ${props => props.theme.colors.background};
   }
 
   @media (max-width: 767px) {
