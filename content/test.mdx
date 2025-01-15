@@ -1,11 +1,136 @@
 ---
 title: 'test'
-metaTitle: 'Smart-Маршрутизация | test'
+metaTitle: 'test'
 metaDescription: 'test'
 ---
 
 <div className="word-break">
 
+# Sidebar
 
+## Right Sidebar
+
+### Description
+
+Nested right sidebar is available (to increase the indent, modify the value in **./src/components/styles/Layout.js** - RightSideBarWidth).
+
+## Left Sidebar
+
+### Links
+
+You can specify your links and their text in **./config.js** under the sidebar section.
+
+### Tabs
+
+Tabs (sections) are defined in the **./content** folder. Here, *File.mdx* represents the page itself, while the *File* folder contains its subsections.
+
+# Image
+
+First add the image to **./static/images/**, then call it as follows:
+
+<pre>
+<code language='javascript' needButtonCopy={false}>
+{`<img nameFile="404-on-gitlab.png" alt="Some text" num="1.1.1.3"/>`}
+</code>
+</pre>
+
+The component is located here: **./src/components/mdxComponents/ImageModal.js**
+
+<img nameFile="404-on-gitlab.png" alt="Some text" num="1.1.1.3"/>
+
+# Code Example
+
+This is an example of how to format a code exam
+
+<pre>
+<code language='javascript' needButtonCopy={false}>
+{`<pre> 
+<code language='sql' needButtonCopy={false}>
+{\`UPDATE order -- Code should start immediately after the quote
+SET column = 1
+WHERE deleted = 0;\`} // Code should end immediately after the quote
+</code>
+</pre>`} 
+</code>
+</pre>
+
+Result:
+
+<pre> 
+<code language='sql' needButtonCopy={false}>
+{`UPDATE order
+SET column = 1
+WHERE deleted = 0;`}
+</code>
+</pre>
+
+Use ```<pre>...</pre>``` — this is necessary for the parser and better code display in search engines. Start your code immediately after the opening brackets and quote ```{` __BLOCK_CODE_BLOCK_6__`}```
+
+The file is located at this path: **./src/components/mdxComponents/CodeExample.js**. The function takes 1 required and 3 optional parameters:
+
+- **children** — your code example;
+- language — the language of the code;
+- needButtonCopy — whether to render the copy button;
+- needBackground — whether the component needs a background;
+
+# Table
+
+<table>
+    <tr>
+        <th>Название поля в public.settings</th>
+        <th>Назначение</th>
+    </tr>
+    <tr>
+        <td colspan="2" >
+            <b>Настройки для подключения к cистемам РОЛИС</b>
+        </td>
+    </tr>
+    <tr>
+        <td>gagaga</td>
+        <td></td>
+    </tr>
+    <tr>
+    <td>paramsBy</td>
+    <td>
+        <pre>
+        <code language='javascript' needButtonCopy={false} needBackground={false}>
+{`{
+    // при каких условиях
+    isSome: {
+        // какие параметры
+        cssName: ""
+        ...
+    }
+}`}
+            </code>
+            </pre>
+        </td>
+    </tr>
+</table>
+
+# Mermaid
+
+<pre>
+<mermaid>
+    {`graph TD
+        logos([1])
+        rolis([2])
+        email[(3)]
+        subscription[(4)]
+        event[(5)]
+        RLSS(6)
+        REIS(7)
+        RESS(8)
+
+        logos --> RLSS
+        REIS --> logos
+        RLSS --> subscription
+        subscription --> RESS
+        RESS --> rolis
+        rolis --> email
+        email --> REIS
+        REIS --> event`}
+</mermaid>
+</pre>
 
 </div>

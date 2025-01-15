@@ -14,7 +14,7 @@ const config = {
       '/test',
     ],
     links: [
-      { text: 'For issue', link: 'https://git.g-soft.ru/artyom.zhevnerenko/documentation-logos' },
+      { text: 'For issue', link: 'https://github.com/LiDline/documentation-template' },
     ],
     frontLine: false,
     ignoreIndex: true,

@@ -55,7 +55,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                     alt={'User Guide'}
                   />
                   <div className="logoContainer">
-                    <div className="logoText">Logistic Operating System</div>
+                    <div className="logoText">Some logo text</div>
                     <div className="userGuideText">ru</div>
                   </div>
                 </Link>
