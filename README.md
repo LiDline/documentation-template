@@ -2,6 +2,10 @@
 
 Based on [this](https://github.com/hasura/gatsby-gitbook-starter) project from **hasura**.
 
+## Example
+
+[Here](https://documentation-template-theta-neon.vercel.app/) you can see a working example
+
 ## 🚀 Run
 
 Get started by running the following commands:
