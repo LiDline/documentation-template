@@ -779,7 +779,6 @@ export const baseStyles = css`
     .responsive {
       margin-top: 15px;
       position: relative;
-      padding-bottom: 20px;
       border-top: 1px solid #fff;
     }
     .headerTitle {
@@ -866,6 +865,7 @@ export const baseStyles = css`
 
     .titleWrapper {
       padding: 0 15px;
+      padding-bottom: 35px;
       display: block;
     }
 
