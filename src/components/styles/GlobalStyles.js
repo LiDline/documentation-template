@@ -74,7 +74,7 @@ export const baseStyles = css`
     border-radius: 1px;
     margin: 0 auto;
     margin-top: 4px;
-    background-color: #001934;
+    background-color: black;
   }
   .navBarToggle .iconBar:first-of-type {
     margin-top: 0px;
@@ -242,11 +242,11 @@ export const baseStyles = css`
   }
 
   .word-break {
-  word-break: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  text-align: justify;
-}
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-align: justify;
+  }
 
   .logoContent {
     font-family: 'Roboto';
@@ -838,12 +838,15 @@ export const baseStyles = css`
     }
 
     .navBarToggle {
+      border: 1px solid black;
+      border-radius: 4px;
+      width: 36px;
+      height: 33px;
       margin-right: 0;
       display: block;
       position: absolute;
       left: 11px;
       top: 15px;
-      background: #fff;
     }
 
     .navBarHeader {

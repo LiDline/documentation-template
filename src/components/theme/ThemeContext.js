@@ -30,6 +30,10 @@ export const ThemeProvider = ({ children }) => {
     window.localStorage.setItem('isDarkThemeActive', JSON.stringify(newTheme));
   };
 
+  if (isDarkThemeActive === null) {
+    return <></>;
+  }
+
   return (
     <ThemeContext.Provider value={{ isDarkThemeActive, toggleTheme }}>
       {children}
