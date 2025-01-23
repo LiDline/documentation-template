@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const GeneralDiv = styled('div')`
   background: ${({ theme }) => theme.colors.background};
+  flex: 1;
 `;
 
 export const Wrapper = styled('div')`

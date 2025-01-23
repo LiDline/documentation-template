@@ -590,6 +590,7 @@ export const baseStyles = css`
   .table-container {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch; /* Плавный скроллинг для мобильных устройств */
+    word-break: normal;
   }
 
   .table-td {

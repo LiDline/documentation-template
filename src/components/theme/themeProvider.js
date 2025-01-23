@@ -13,9 +13,13 @@ const ThemeWrapper = ({ children, location }) => {
   const currentActiveTheme = isDarkThemeActive ? darkTheme : lightTheme;
 
   return (
-    <div>
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Global styles={[baseStyles, ...styles]} />
-      <Header location={location} isDarkThemeActive={isDarkThemeActive} toggleActiveTheme={toggleTheme} />
+      <Header
+        location={location}
+        isDarkThemeActive={isDarkThemeActive}
+        toggleActiveTheme={toggleTheme}
+      />
       <EmotionThemeProvider theme={currentActiveTheme}>{children}</EmotionThemeProvider>
     </div>
   );
