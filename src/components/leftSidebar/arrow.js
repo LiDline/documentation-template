@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default function ArrowBar({ isBlack = true, closed = true }) {
+export default function ArrowBar({ isDarkThemeActive, active, closed = true }) {
   const [screenWidth, setScreenWidth] = React.useState(1080);
 
   React.useEffect(() => {
@@ -8,8 +8,16 @@ export default function ArrowBar({ isBlack = true, closed = true }) {
       setScreenWidth(window.innerWidth);
     }
   }, []);
+  const isBlackArrow = !isDarkThemeActive && !active;
+  // const customFill = screenWidth > 767 ? (isBlackArrow ? 'black' : 'white') : '#1ed3c6';
 
-  const customFill = screenWidth > 767 ? (isBlack ? 'black' : 'white') : '#1ed3c6';
+  const customFill = active
+    ? 'white'
+    : screenWidth > 767
+    ? isDarkThemeActive
+      ? 'white'
+      : 'black'
+    : '#1ed3c6';
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">

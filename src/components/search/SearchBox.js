@@ -117,7 +117,11 @@ const SearchBox = ({ index, isDarkThemeActive }) => {
       </InputWrapper>
       {isModalOpen && result && (
         <div ref={modalRef}>
-          <SearchResultModal results={result} keyword={searchValue} isDarkThemeActive={isDarkThemeActive}/>
+          <SearchResultModal
+            results={result}
+            keyword={searchValue}
+            isDarkThemeActive={isDarkThemeActive}
+          />
         </div>
       )}
     </Form>

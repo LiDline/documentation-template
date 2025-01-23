@@ -28,7 +28,6 @@ const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, 
   const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
 
   const { isDarkThemeActive } = useTheme();
-  const isBlackArrow = !isDarkThemeActive && !active;
 
   return (
     <li className={calculatedClassName}>
@@ -38,9 +37,9 @@ const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, 
           {!config.sidebar.frontLine && title && hasChildren ? (
             <button onClick={collapse} className="collapser">
               {!isCollapsed ? (
-                <ArrowBar isBlack={isBlackArrow} closed={false} />
+                <ArrowBar isDarkThemeActive={isDarkThemeActive} active={active} closed={false} />
               ) : (
-                <ArrowBar isBlack={isBlackArrow} />
+                <ArrowBar isDarkThemeActive={isDarkThemeActive} active={active} />
               )}
             </button>
           ) : null}

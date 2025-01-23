@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkThemeActive, setIsDarkThemeActive] = useState(true);
+  const [isDarkThemeActive, setIsDarkThemeActive] = useState(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

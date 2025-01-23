@@ -817,6 +817,7 @@ export const baseStyles = css`
     }
     .navBarULRight {
       position: static;
+      padding-top: 10px;
     }
     .navBarUL {
       display: flex;
@@ -864,7 +865,7 @@ export const baseStyles = css`
     }
 
     .titleWrapper {
-      padding: 0 15px;
+      padding: 0px 15px;
       padding-bottom: 35px;
       display: block;
     }
